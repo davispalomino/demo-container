@@ -19,7 +19,7 @@ def welcome():
     )
 
 @app.route('/fargate/start')
-def welcome():
+def welcomefargate():
     logging.info('starting welcome function')
     time_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     logging.info('capturing date and time')
@@ -30,7 +30,7 @@ def welcome():
     )
 
 @app.route('/ec2/start')
-def welcome():
+def welcomeec2():
     logging.info('starting welcome function')
     time_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     logging.info('capturing date and time')
