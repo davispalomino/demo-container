@@ -18,6 +18,28 @@ def welcome():
         mimetype='application/json'
     )
 
+@app.route('/fargate/start')
+def welcome():
+    logging.info('starting welcome function')
+    time_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    logging.info('capturing date and time')
+    return app.response_class(
+        response=(json.dumps({"result":"success","message":"welcome microservice-fargate","data":[f"{time_now}"]},sort_keys="true", default=str)),
+        status=200,
+        mimetype='application/json'
+    )
+
+@app.route('/ec2/start')
+def welcome():
+    logging.info('starting welcome function')
+    time_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    logging.info('capturing date and time')
+    return app.response_class(
+        response=(json.dumps({"result":"success","message":"welcome microservice-ec2","data":[f"{time_now}"]},sort_keys="true", default=str)),
+        status=200,
+        mimetype='application/json'
+    )
+
 @app.route('/health')
 def healthCheck():
     return app.response_class(
