@@ -34,6 +34,13 @@ pipeline {
                 }
             }
         }
+        stage('Build UploadECR') {
+            steps {
+                script {
+                    sh "make pushecr"
+                }
+            }
+        }
     }
     post {
         always {
