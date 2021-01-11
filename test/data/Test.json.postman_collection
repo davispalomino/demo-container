@@ -1,0 +1,58 @@
+{
+	"id": "99e59467-6ea9-4d3c-bcee-6c3d4bc7b5a3",
+	"name": "aws-tech",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"1f893978-c90d-4988-9b6e-17dd41d50f95"
+	],
+	"folders_order": [],
+	"protocolProfileBehavior": {},
+	"folders": [],
+	"requests": [
+		{
+			"id": "1f893978-c90d-4988-9b6e-17dd41d50f95",
+			"name": "HealthCheck",
+			"url": "http://contenedor:80/health",
+			"description": "check health check",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"responses": [
+				{
+					"id": "d0baa3fe-c2ea-4dee-8d7a-78f7952fc089",
+					"name": "HealthCheck",
+					"status": null,
+					"mime": null,
+					"language": "json",
+					"text": "{\n    \"data\": [],\n    \"message\": \"health UP\",\n    \"result\": \"success\"\n}",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"requestObject": {
+						"data": null,
+						"dataMode": null,
+						"dataOptions": null,
+						"headerData": [],
+						"method": "GET",
+						"pathVariableData": [],
+						"queryParams": [],
+						"url": "http://contenedor:80/health"
+					}
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		}
+	]
+}

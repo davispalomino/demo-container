@@ -1,0 +1,31 @@
+version: "2.1"
+services:
+  contenedor:
+    image: ${IMAGE_APP}
+    ports:
+      - "80"
+    restart: on-failure
+    healthcheck:
+      test: curl -f http://localhost:80/health || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 2
+    networks:
+      - app-network
+  newman:
+    depends_on:
+      contenedor:
+        condition: service_healthy
+    image: ${IMAGE_NEWMAN}
+    hostname: newman
+    # user: "${USUARIO}:${USUARIO}"
+    privileged: true
+    networks:
+      - app-network
+    volumes:
+      - "./test/data:/etc/newman"
+      # - "./docker/passwd:/etc/passwd:ro"
+    command: run "/etc/newman/Test.json.postman_collection" --reporters="htmlextra,cli" --reporter-htmlextra-export="index.html" --reporter-htmlextra-title="Test ${MICROSERVICE}"
+networks:
+  app-network:
+    driver: bridge
